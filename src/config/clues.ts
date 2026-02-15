@@ -132,7 +132,7 @@ Find the place where liquid calls`,
   // -------- FINAL --------
  FIN00:{
   text:"🏆 CONGRATULATIONS! YOU HAVE FOUND THE TREASURE!!! Click below to claim victory!",
-  link:"https://wa.me/918861579575?text=🏆%20We%20finished%20the%20treasure%20hunt%20FIRST!"
+  link:"https://wa.me/917034147689?text=🏆%20We%20finished%20the%20treasure%20hunt%20FIRST!"
 },
 
 
