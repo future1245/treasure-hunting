@@ -121,12 +121,13 @@ export const CLUES: Record<
   },
 
   // -------- LEADS TO FINAL --------
-  END32:{
-    text:"🎯 Water moves but never speaks,
+ END32:{
+  text:`🎯 Water moves but never speaks,
 Pressure hides in silent peaks.
 Flow decides what stands or falls,
-Find the place where liquid calls",
-  },
+Find the place where liquid calls`,
+},
+
 
   // -------- FINAL --------
   FIN00:{
