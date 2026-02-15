@@ -3,12 +3,31 @@ export const CLUES: Record<
   { text: string; link?: string }
 > = {
 
-  // -------- STARTING CODES --------
- A9K2X:{ link:"https://youtube.com/shorts/rF68OgmjF7k?si=sK-aTSlKmc1ncOEp" },
- Q7M4L:{ link:"https://youtube.com/shorts/TajAzT3CVJc?si=jCB2DcsDCZ8xvfWv" },
- Z3P8R:{ link:"https://youtube.com/shorts/5Mtszcou0hc?si=Z3FjCw5xXrMqYc4C" },
- B6T1N:{ link:"https://youtube.com/shorts/vxRA_G6dXek?si=S4dhFrc9QazLxYGk" },
- X2F9C:{ link:"https://youtube.com/shorts/22JqlVBAUaM?si=IJB9om1xZDuV_A0D" },
+ // -------- STARTING CODES --------
+A9K2X:{
+  text:"Open the link",
+  link:"https://youtube.com/shorts/rF68OgmjF7k?si=sK-aTSlKmc1ncOEp"
+},
+
+Q7M4L:{
+  text:"Open the link",
+  link:"https://youtube.com/shorts/TajAzT3CVJc?si=jCB2DcsDCZ8xvfWv"
+},
+
+Z3P8R:{
+  text:"Open the link",
+  link:"https://youtube.com/shorts/5Mtszcou0hc?si=Z3FjCw5xXrMqYc4C"
+},
+
+B6T1N:{
+  text:"Open the link",
+  link:"https://youtube.com/shorts/vxRA_G6dXek?si=S4dhFrc9QazLxYGk"
+},
+
+X2F9C:{
+  text:"Open the link",
+  link:"https://youtube.com/shorts/22JqlVBAUaM?si=IJB9om1xZDuV_A0D"
+},
 
   // -------- TEAM 101 & 102 --------
   M5R7K:{
