@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { AlertCircle, Sparkles } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 
 import { isCodeAccessibleByTeam, getTeamColor } from '@/config/treasureConfig';
 import { CLUES } from '@/config/clues';
@@ -15,6 +16,7 @@ export default function TreasureCodePage() {
   const [teamNumber, setTeamNumber] = useState<number | null>(null);
   const [isAuthorized, setIsAuthorized] = useState(false);
 
+  // ---------------- LOAD TEAM ----------------
   useEffect(() => {
     const storedTeam = localStorage.getItem('treasureHuntTeam');
 
@@ -38,16 +40,25 @@ export default function TreasureCodePage() {
   const teamColor = getTeamColor(teamNumber);
   const clueData = CLUES[code?.toUpperCase() || ""];
 
+  // ---------------- UNAUTHORIZED ----------------
   if (!isAuthorized) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black p-4">
         <Card className="p-6 text-center">
           <AlertCircle className="text-red-500 w-12 h-12 mx-auto" />
+
           <CardTitle className="text-red-500 mt-2">
             Unauthorized QR Code
           </CardTitle>
 
-          <Button onClick={() => navigate('/treasure')} className="mt-4">
+          <p className="mt-2">
+            This QR is not for your team
+          </p>
+
+          <Button
+            onClick={() => navigate('/treasure')}
+            className="mt-4"
+          >
             Go Back
           </Button>
         </Card>
@@ -55,6 +66,7 @@ export default function TreasureCodePage() {
     );
   }
 
+  // ---------------- MAIN PAGE ----------------
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
 
@@ -84,7 +96,7 @@ export default function TreasureCodePage() {
             {clueData?.text || "Clue will be added later"}
           </p>
 
-          {/* LINK IF EXISTS */}
+          {/* OPTIONAL LINK (Drive / WhatsApp / etc) */}
           {clueData?.link && (
             <a
               href={clueData.link}
@@ -96,9 +108,12 @@ export default function TreasureCodePage() {
             </a>
           )}
 
+          {/* CODE DISPLAY */}
           <div>
-            <p>Scanned Code</p>
-            <Badge>{code?.toUpperCase()}</Badge>
+            <p className="text-gray-400">Scanned Code</p>
+            <Badge className="font-mono text-lg">
+              {code?.toUpperCase()}
+            </Badge>
           </div>
 
           <Button onClick={() => navigate('/treasure')}>
