@@ -38,124 +38,107 @@ export default function TreasureCodePage() {
   const teamColor = getTeamColor(teamNumber);
   const clueData = CLUES[code?.toUpperCase() || ""];
 
-  // ---------------- UNAUTHORIZED ----------------
+  // ✅ WhatsApp function for FINAL QR
+  const handleWhatsAppWin = () => {
+    const team = localStorage.getItem("treasureHuntTeam");
+
+    if (!team) {
+      alert("Team not found");
+      return;
+    }
+
+    const whatsappLink =
+      `https://wa.me/918861579575?text=🏆%20Team%20${team}%20finished%20the%20treasure%20hunt%20FIRST!`;
+
+    window.location.href = whatsappLink;
+  };
+
+  // ❌ UNAUTHORIZED PAGE
   if (!isAuthorized) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center p-4">
-        <Card className="w-full max-w-2xl shadow-2xl border-red-500/50 bg-gray-900/80 backdrop-blur">
-          <CardHeader className="text-center space-y-4">
-            <AlertCircle className="w-16 h-16 text-red-500 mx-auto" />
-            <CardTitle className="text-2xl font-bold text-red-500">
-              Unauthorized QR Code for your team
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent className="text-center space-y-4">
-            <p>This QR is not for Team {teamNumber}</p>
-
-            <Badge className="font-mono text-lg px-4 py-2">
-              {code?.toUpperCase()}
-            </Badge>
-
-            <Button
-              onClick={() => navigate('/treasure')}
-              variant="destructive"
-              className="w-full"
-            >
-              Go Back
-            </Button>
-          </CardContent>
+      <div className="min-h-screen flex items-center justify-center bg-black">
+        <Card className="p-6 text-center">
+          <AlertCircle className="text-red-500 w-12 h-12 mx-auto" />
+          <CardTitle className="text-red-500 mt-2">
+            Unauthorized QR Code
+          </CardTitle>
+          <p>This QR is not for Team {teamNumber}</p>
+          <Button onClick={() => navigate('/treasure')} className="mt-4">
+            Go Back
+          </Button>
         </Card>
       </div>
     );
   }
 
-  // ---------------- AUTHORIZED ----------------
+  // ✅ MAIN PAGE
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center bg-black p-4">
 
-      <div
-        className="w-full max-w-2xl"
-        style={{ filter: `drop-shadow(0 0 20px ${teamColor.glow})` }}
+      <Card
+        className="max-w-2xl w-full text-center"
+        style={{
+          borderColor: teamColor.accent,
+          boxShadow: `0 0 25px ${teamColor.glow}`
+        }}
       >
+        <CardHeader>
+          <CardTitle style={{ color: teamColor.accent }}>
+            TREASURE HUNT
+          </CardTitle>
 
-        <Card
-          className="bg-gray-900/90 border-2 shadow-2xl"
-          style={{
-            borderColor: teamColor.accent,
-            boxShadow: `0 0 30px ${teamColor.glow}`
-          }}
-        >
+          <Badge>TEAM {teamNumber}</Badge>
+        </CardHeader>
 
-          <CardHeader className="text-center space-y-4">
-            <div className="flex justify-center gap-2">
-              <Sparkles style={{ color: teamColor.accent }} />
-              <CardTitle style={{ color: teamColor.accent }}>
-                TREASURE HUNT
-              </CardTitle>
-              <Sparkles style={{ color: teamColor.accent }} />
-            </div>
+        <CardContent className="space-y-6">
 
-            <Badge
-              style={{
-                borderColor: teamColor.accent,
-                color: teamColor.accent
-              }}
+          {/* CLUE TEXT */}
+          <p
+            className="text-xl"
+            style={{ color: teamColor.accent }}
+          >
+            {clueData?.text || "Clue will be added later"}
+          </p>
+
+          {/* OPTIONAL LINK */}
+          {clueData?.link && (
+            <a
+              href={clueData.link}
+              target="_blank"
+              rel="noreferrer"
+              className="underline text-blue-400 block"
             >
-              TEAM {teamNumber}
-            </Badge>
-          </CardHeader>
+              Open Clue Link
+            </a>
+          )}
 
-          <CardContent className="space-y-6 text-center">
-
-            {/* -------- CLUE DISPLAY -------- */}
-            <div
-              className="p-8 rounded-lg border space-y-4"
-              style={{ borderColor: teamColor.accent }}
-            >
-
-              <p
-                className="text-xl"
-                style={{ color: teamColor.accent }}
-              >
-                {clueData?.text || "Clue will be added later"}
-              </p>
-
-              {clueData?.link && (
-                <a
-                  href={clueData.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline text-blue-400"
-                >
-                  Open Clue Link
-                </a>
-              )}
-
-              <div>
-                <p className="text-gray-400">Scanned Code</p>
-                <Badge className="font-mono text-xl">
-                  {code?.toUpperCase()}
-                </Badge>
-              </div>
-
-            </div>
-
+          {/* FINAL QR BUTTON */}
+          {code?.toUpperCase() === "FIN00" && (
             <Button
-              onClick={() => navigate('/treasure')}
-              variant="outline"
-              className="w-full"
-              style={{
-                borderColor: teamColor.accent,
-                color: teamColor.accent
-              }}
+              onClick={handleWhatsAppWin}
+              className="bg-green-600 hover:bg-green-700 text-white text-lg"
             >
-              Back to Home
+              🏆 Claim Victory on WhatsApp
             </Button>
+          )}
 
-          </CardContent>
-        </Card>
-      </div>
+          {/* CODE DISPLAY */}
+          <div>
+            <p className="text-gray-400">Scanned Code</p>
+            <Badge className="font-mono text-lg">
+              {code?.toUpperCase()}
+            </Badge>
+          </div>
+
+          <Button
+            onClick={() => navigate('/treasure')}
+            variant="outline"
+          >
+            Back to Home
+          </Button>
+
+        </CardContent>
+      </Card>
     </div>
   );
 }
