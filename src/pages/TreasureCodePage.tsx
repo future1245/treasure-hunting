@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -39,37 +40,29 @@ export default function TreasureCodePage() {
   const teamColor = getTeamColor(teamNumber);
   const clueData = CLUES[code?.toUpperCase() || ""];
 
-  // ---------------- WHATSAPP WIN ----------------
+  // ---------------- WHATSAPP FUNCTION ----------------
   const handleWhatsAppWin = () => {
     const team = localStorage.getItem("treasureHuntTeam");
     if (!team) return;
 
-    const whatsappLink =
+    const link =
       `https://wa.me/918861579575?text=🏆%20Team%20${team}%20finished%20the%20treasure%20hunt%20FIRST!`;
 
-    window.location.href = whatsappLink;
+    window.location.href = link;
   };
 
-  // ---------------- UNAUTHORIZED PAGE ----------------
+  // ---------------- UNAUTHORIZED ----------------
   if (!isAuthorized) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black p-4">
+      <div className="min-h-screen flex items-center justify-center bg-black">
         <Card className="p-6 text-center">
           <AlertCircle className="text-red-500 w-12 h-12 mx-auto" />
-          <CardTitle className="text-red-500 mt-2">
-            Unauthorized QR Code
-          </CardTitle>
-          <p className="mt-2">
-            This QR is not for Team {teamNumber}
-          </p>
-
-          <Badge className="mt-4 font-mono">
-            {code?.toUpperCase()}
-          </Badge>
+          <CardTitle className="text-red-500">Unauthorized</CardTitle>
+          <p>Not for Team {teamNumber}</p>
 
           <Button
             onClick={() => navigate('/treasure')}
-            className="mt-6"
+            className="mt-4"
           >
             Go Back
           </Button>
@@ -78,7 +71,7 @@ export default function TreasureCodePage() {
     );
   }
 
-  // ---------------- MAIN PAGE ----------------
+  // ---------------- MAIN ----------------
   return (
     <div className="min-h-screen flex items-center justify-center bg-black p-4">
 
@@ -89,32 +82,31 @@ export default function TreasureCodePage() {
           boxShadow: `0 0 25px ${teamColor.glow}`
         }}
       >
+
         <CardHeader>
           <CardTitle style={{ color: teamColor.accent }}>
             TREASURE HUNT
           </CardTitle>
 
-          <Badge
-            style={{
-              borderColor: teamColor.accent,
-              color: teamColor.accent
-            }}
-          >
-            TEAM {teamNumber}
-          </Badge>
+          <Badge>TEAM {teamNumber}</Badge>
         </CardHeader>
 
         <CardContent className="space-y-6">
 
-          {/* -------- CLUE TEXT -------- */}
+          {/* DEBUG LINE */}
+          <h2 style={{color:"yellow"}}>
+            VERSION 2 LIVE
+          </h2>
+
+          {/* CLUE */}
           <p
             className="text-xl"
             style={{ color: teamColor.accent }}
           >
-            {clueData?.text || "Clue will be added later"}
+            {clueData?.text || "No clue"}
           </p>
 
-          {/* -------- OPTIONAL LINK -------- */}
+          {/* LINK */}
           {clueData?.link && (
             <a
               href={clueData.link}
@@ -126,7 +118,7 @@ export default function TreasureCodePage() {
             </a>
           )}
 
-          {/* -------- FINAL BUTTON -------- */}
+          {/* FINAL BUTTON */}
           {code?.toUpperCase() === "FIN00" && (
             <Button
               onClick={handleWhatsAppWin}
@@ -136,28 +128,21 @@ export default function TreasureCodePage() {
             </Button>
           )}
 
-          {/* -------- CODE DISPLAY -------- */}
+          {/* CODE */}
           <div>
             <p className="text-gray-400">Scanned Code</p>
-            <Badge className="font-mono text-lg">
-              {code?.toUpperCase()}
-            </Badge>
+            <Badge>{code?.toUpperCase()}</Badge>
           </div>
 
           <Button
             onClick={() => navigate('/treasure')}
             variant="outline"
-            style={{
-              borderColor: teamColor.accent,
-              color: teamColor.accent
-            }}
           >
             Back to Home
           </Button>
 
         </CardContent>
       </Card>
-
     </div>
   );
 }
