@@ -3,31 +3,31 @@ export const CLUES: Record<
   { text: string; link?: string }
 > = {
 
- // -------- STARTING CODES --------
-A9K2X:{
-  text:"Open the link",
-  link:"https://youtube.com/shorts/rF68OgmjF7k?si=sK-aTSlKmc1ncOEp"
-},
+  // -------- STARTING CODES --------
+  A9K2X:{
+    text:"Open the link",
+    link:"https://youtube.com/shorts/rF68OgmjF7k?si=sK-aTSlKmc1ncOEp"
+  },
 
-Q7M4L:{
-  text:"Open the link",
-  link:"https://youtube.com/shorts/TajAzT3CVJc?si=jCB2DcsDCZ8xvfWv"
-},
+  Q7M4L:{
+    text:"Open the link",
+    link:"https://youtube.com/shorts/TajAzT3CVJc?si=jCB2DcsDCZ8xvfWv"
+  },
 
-Z3P8R:{
-  text:"Open the link",
-  link:"https://youtube.com/shorts/5Mtszcou0hc?si=Z3FjCw5xXrMqYc4C"
-},
+  Z3P8R:{
+    text:"Open the link",
+    link:"https://youtube.com/shorts/5Mtszcou0hc?si=Z3FjCw5xXrMqYc4C"
+  },
 
-B6T1N:{
-  text:"Open the link",
-  link:"https://youtube.com/shorts/vxRA_G6dXek?si=S4dhFrc9QazLxYGk"
-},
+  B6T1N:{
+    text:"Open the link",
+    link:"https://youtube.com/shorts/vxRA_G6dXek?si=S4dhFrc9QazLxYGk"
+  },
 
-X2F9C:{
-  text:"Open the link",
-  link:"https://youtube.com/shorts/22JqlVBAUaM?si=IJB9om1xZDuV_A0D"
-},
+  X2F9C:{
+    text:"Open the link",
+    link:"https://youtube.com/shorts/22JqlVBAUaM?si=IJB9om1xZDuV_A0D"
+  },
 
   // -------- TEAM 101 & 102 --------
   M5R7K:{
@@ -47,7 +47,7 @@ X2F9C:{
   },
 
   C4X5M:{
-    text:"തല ചൂടാകുമ്പോൾ, ഇവിടെ ശീതളത റെഡി."
+    text:"I gather many, yet teach none directly, One voice rises while others sit silently."
   },
 
   // -------- TEAM 103 & 104 --------
@@ -68,7 +68,7 @@ X2F9C:{
   },
 
   F5C9L:{
-    text:"Wheels gather, but nowhere to go"
+    text:"A place where light speaks more than people, And silence becomes the main rule."
   },
 
   // -------- TEAM 105 & 106 --------
@@ -91,7 +91,7 @@ X2F9C:{
   },
 
   E2L9X:{
-    text:"പണി ഒന്നുമില്ലാതെ ദിവസവും കിടന്ന് ഉറങ്ങുന്ന വസ്തുക്കളുടെ ഹോസ്റ്റൽ"
+    text:"Not a classroom of daily lessons, Yet knowledge visits here on special occasions."
   },
 
   // -------- TEAM 107 & 108 --------
@@ -114,7 +114,7 @@ X2F9C:{
   },
 
   O9F1D:{
-    text:"A silent battlefield of wires and waveforms"
+    text:"Chairs face a single direction with discipline, While attention slowly begins to thin."
   },
 
   // -------- TEAM 109 & 110 --------
@@ -135,24 +135,18 @@ X2F9C:{
   },
 
   ASD12:{
-    text:"Open the clue using the link",
-    link:"https://drive.google.com/file/d/1VFYa6EB7fGCWU2rSBzmfI-1PfptT5cvB/view"
+    text:"Voices echo, but questions are few, A formal space where ideas debut."
   },
 
   // -------- LEADS TO FINAL --------
- END32:{
-  text:`🎯 Water moves but never speaks,
-Pressure hides in silent peaks.
-Flow decides what stands or falls,
-Find the place where liquid calls`,
-},
-
+  END32:{
+    text:`🎯 Water moves but never speaks, Pressure hides in silent peaks. Flow decides what stands or falls, Find the place where liquid calls`,
+  },
 
   // -------- FINAL --------
- FIN00:{
-  text:"🏆 CONGRATULATIONS! YOU HAVE FOUND THE TREASURE!!! Click below to claim victory!",
-  link:"https://wa.me/917034147689?text=🏆%20We%20finished%20the%20treasure%20hunt%20FIRST!"
-},
-
+  FIN00:{
+    text:"🏆 CONGRATULATIONS! YOU HAVE FOUND THE TREASURE!!! Click below to claim victory!",
+    link:"https://wa.me/917034147689?text=🏆%20We%20finished%20the%20treasure%20hunt%20FIRST!"
+  },
 
 };
