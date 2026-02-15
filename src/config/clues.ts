@@ -122,8 +122,10 @@ export const CLUES: Record<
 
   // -------- LEADS TO FINAL --------
   END32:{
-    text:"🎯 You are heading to the final location. One last scan remains. scan the qr",
-    link:"https://drive.google.com/file/d/13XdVX7rw1BHGr5rKEejP8Rm_yVd3gtql/view"
+    text:"🎯 Water moves but never speaks,
+Pressure hides in silent peaks.
+Flow decides what stands or falls,
+Find the place where liquid calls",
   },
 
   // -------- FINAL --------
