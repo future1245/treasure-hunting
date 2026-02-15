@@ -130,7 +130,7 @@ Find the place where liquid calls",
 
   // -------- FINAL --------
   FIN00:{
-    text:"🏆 CONGRATULATIONS! You found the treasure!"
+    text:"🏆 CONGRATULATIONS! You found the treasure!!!"
   },
 
 };
